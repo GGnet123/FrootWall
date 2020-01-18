@@ -1,6 +1,6 @@
 <?php
 
-use dosamigos\ckeditor\CKEditorInline;
+use dosamigos\ckeditor\CKEditor;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
@@ -10,7 +10,11 @@ use \admin\models\Categories;
 /* @var $model admin\models\Articles */
 /* @var $form yii\widgets\ActiveForm */
 
-$this->registerJs("CKEDITOR.plugins.addExternal('ckeditorMedia', '/ckeditorMedia/plugin.js', '');");
+$this->registerJs("CKEDITOR.plugins.addExternal('videodetector', '/ckeditor/plugins/videodetector/')");
+$this->registerJs("CKEDITOR.editorConfig = function(config) {
+    config.language = 'ru';
+    config.extraPlugins = 'videodetector';
+}");
 
 ?>
 
@@ -22,23 +26,12 @@ $this->registerJs("CKEDITOR.plugins.addExternal('ckeditorMedia', '/ckeditorMedia
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-
-<!--    --><?php //CKEditorInline::begin(['preset' => 'custom', 'clientOptions' => [
-//        'extraPlugins' => 'ckeditorMedia',
-//        'toolbarGroups' => [
-//            ['name' => 'undo'],
-//            ['name' => 'basicstyles', 'groups' => ['basicstyles', 'cleanup']],
-//            ['name' => 'colors'],
-//            ['name' => 'links', 'groups' => ['links', 'insert']],
-//            ['name' => 'others', 'groups' => ['others', 'about']],
-//
-//            ['name' => 'ckeditorMedia']
-//        ]
-//    ]]) ?>
-
-    <?= $form->field($model, 'content')->textInput(['maxlength' => true]) ?>
-
-<!--    --><?php //CKEditorInline::end() ?>
+    <?= $form->field($model, 'content')->widget(CKEditor::className(), [
+        'options' => ['rows' => 6],
+        'preset' => 'standard',
+        'clientOptions' => [
+            'customConfig' => '/ckeditor/ckeditor.js',
+        ]]) ?>
 
     <?php
     $categories = ArrayHelper::map(Categories::find()->all(), 'id','title');
