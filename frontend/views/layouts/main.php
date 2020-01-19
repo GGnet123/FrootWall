@@ -32,7 +32,7 @@ AppAsset::register($this);
         'brandLabel' => 'Froot',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
+            'class' => 'header',
         ],
     ]);
     if (Yii::$app->user->isGuest) {

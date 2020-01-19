@@ -11,25 +11,19 @@ $this->title = 'FrootWall';
     <?php
     foreach ($categories as $category) {
         echo
-            "<h1 style='border: 1px solid black; 
-                        display: inline-flex; 
-                        flex-direction: row; 
-                        flex-wrap: wrap; 
-                        margin-right: 3%;'>"
+            "<h1 class='category'>"
                         . Html::a($category->title, 'index?data=' . $category->id, ['class' => 'categories']) .
             "</h1>";
     }
     ?>
 
-<div style='display: flex; justify-content: space-between;'>
+<div class="container">
     <?php
     if ($articles) {
             foreach ($articles as $article)
-                echo  "<div class='flex-container' 
-                            style='display: flex; 
-                            flex-direction: column;'>
+                echo  "<div class='flex-container'>
                         <h1>" . $article->title ."</h1> 
-                        <p style='margin-top: 10%'>" . $article-> content. "</p>
+                        <p class='content'>" . $article-> content. "</p>
                         </div>";
     }
     ?>
