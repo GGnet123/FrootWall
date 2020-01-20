@@ -15,13 +15,15 @@ class Articles extends ActiveRecord
     public function rules()
     {
         return [
-            [['title','category_id','content'],'required'],
+            [['title','category_id','content','short_description'],'required'],
             ['id','safe']
         ];
     }
     public function beforeSave($insert)
     {
-        $this->content = substr($this->content, 0, strpos($this->content, "<input class"));
+        if (strpos($this->content, "<input class")){
+            $this->content = substr($this->content, 0, strpos($this->content, "<input class"));
+        }
 
         return true;
     }

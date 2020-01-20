@@ -26,6 +26,11 @@ $this->registerJs("CKEDITOR.editorConfig = function(config) {
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'short_description')->widget(CKEditor::className(), [
+        'options' => ['rows' => 2],
+        'preset' => 'basic',
+        ]) ?>
+
     <?= $form->field($model, 'content')->widget(CKEditor::className(), [
         'options' => ['rows' => 6],
         'preset' => 'standard',

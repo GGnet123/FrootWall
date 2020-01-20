@@ -13,7 +13,7 @@ $this->title = 'FrootWall';
     foreach ($categories as $category) {
         echo
             "<div class='categories-items'><h1>"
-                        . Html::a($category->title, 'index?data=' . $category->id, ['class' => 'categoriesHref']) .
+                        . Html::a($category->title, ['site/index', 'data' => $category->id], ['class' => 'categoriesHref']) .
             "</h1></div>";
     }
     ?>
@@ -22,9 +22,9 @@ $this->title = 'FrootWall';
     <?php
     if ($articles) {
             foreach ($articles as $article)
-                echo  "<div class='articleContent'>
-                        <h1>" . $article->title ."</h1> 
-                        <p style='margin-top: 10%'>" . $article-> content. "</p>
+                echo  "<div class='articleContent'> "
+                        . Html::a($article->title,['content/index', 'id'=>$article->id]) . "
+                        <p style='margin-top: 10%'>" . $article-> short_description. "</p>
                         </div>";
     }
     ?>
