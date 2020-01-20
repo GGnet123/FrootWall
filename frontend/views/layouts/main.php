@@ -53,18 +53,20 @@ AppAsset::register($this);
     ]);
     NavBar::end();
     ?>
+    <?php
+    if (!Yii::$app->user->isGuest){ ?>
     <div class="categories">
-        <?php
-        $categories = \admin\models\Categories::find()->all();
-        foreach ($categories as $category) {
-            echo
-                "<div class='categories-items'><h1>"
-                . Html::a($category->title, ['site/index', 'data' => $category->id], ['class' => 'categoriesHref']) .
-                "</h1></div>";
-        }
-        ?>
+    <?php
+    $categories = \admin\models\Categories::find()->all();
+            foreach ($categories as $category) {
+                echo
+                    "<div class='categories-items'><h1>"
+                    . Html::a($category->title, ['site/index', 'data' => $category->id], ['class' => 'categoriesHref']) .
+                    "</h1></div>";
+            }
+    ?>
     </div>
-
+    <?php } ?>
     <?= $content ?>
 </div>
 
