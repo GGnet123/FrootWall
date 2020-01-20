@@ -8,16 +8,7 @@ $this->title = 'FrootWall';
 ?>
 
 <div class="main-container">
-    <div class="categories">
-    <?php
-    foreach ($categories as $category) {
-        echo
-            "<div class='categories-items'><h1>"
-                        . Html::a($category->title, ['site/index', 'data' => $category->id], ['class' => 'categoriesHref']) .
-            "</h1></div>";
-    }
-    ?>
-    </div>
+
 <div class="articles">
     <?php
     if ($articles) {

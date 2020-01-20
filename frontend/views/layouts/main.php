@@ -53,9 +53,22 @@ AppAsset::register($this);
     ]);
     NavBar::end();
     ?>
+    <div class="categories">
+        <?php
+        $categories = \admin\models\Categories::find()->all();
+        foreach ($categories as $category) {
+            echo
+                "<div class='categories-items'><h1>"
+                . Html::a($category->title, ['site/index', 'data' => $category->id], ['class' => 'categoriesHref']) .
+                "</h1></div>";
+        }
+        ?>
+    </div>
 
     <?= $content ?>
 </div>
+
+
 
 <!--<footer class="footer">-->
 <!--    <div class="container">-->
