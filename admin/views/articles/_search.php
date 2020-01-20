@@ -1,5 +1,6 @@
 <?php
 
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -22,7 +23,10 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'title') ?>
 
-    <?= $form->field($model, 'category_id') ?>
+
+    <?php
+    $categories = ArrayHelper::map(\admin\models\Categories::find()->all(), 'id','title');
+    echo $form->field($model, 'category_id')->dropDownList($categories) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

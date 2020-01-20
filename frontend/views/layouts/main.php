@@ -29,10 +29,10 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'Froot',
+        'brandLabel' => Html::img('https://almaty.hh.kz/employer-logo/2906961.png'),
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
+            'class' => 'headerLogo',
         ],
     ]);
     if (Yii::$app->user->isGuest) {
@@ -42,7 +42,7 @@ AppAsset::register($this);
             . Html::beginForm(['/site/logout'], 'post')
             . Html::submitButton(
                 'Logout (' . Yii::$app->user->identity->username . ')',
-                ['class' => 'btn btn-link logout']
+                ['class' => 'logout']
             )
             . Html::endForm()
             . '</li>';
@@ -54,13 +54,7 @@ AppAsset::register($this);
     NavBar::end();
     ?>
 
-    <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
-        <?= $content ?>
-    </div>
+    <?= $content ?>
 </div>
 
 <!--<footer class="footer">-->

@@ -19,4 +19,10 @@ class Articles extends ActiveRecord
             ['id','safe']
         ];
     }
+    public function beforeSave($insert)
+    {
+        $this->content = substr($this->content, 0, strpos($this->content, "<input class"));
+
+        return true;
+    }
 }

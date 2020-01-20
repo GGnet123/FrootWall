@@ -1,17 +1,11 @@
 html,
 body {
     height: 100%;
+    width: 100%;
 }
 
-.wrap {
-    min-height: 100%;
-    height: auto;
-    margin: 0 auto -60px;
-    padding: 0 0 60px;
-}
-
-.wrap > .container {
-    padding: 70px 15px 20px;
+.container{
+    width: 100%; !important;
 }
 
 .footer {
@@ -24,6 +18,10 @@ body {
 .jumbotron {
     text-align: center;
     background-color: transparent;
+}
+.site-login{
+    margin-top: 10%;
+    margin-left: 35%;
 }
 
 .jumbotron .btn {
@@ -41,7 +39,7 @@ a.asc:after, a.desc:after {
     position: relative;
     top: 1px;
     display: inline-block;
-    font-family: 'Glyphicons Halflings';
+    font-family: 'Glyphicons Halflings',monospace;
     font-style: normal;
     font-weight: normal;
     line-height: 1;
@@ -96,10 +94,6 @@ a.desc:after {
 }
 
 /* align the logout "link" (button in form) of the navbar */
-.nav li > form > button.logout {
-    padding: 15px;
-    border: none;
-}
 
 @media(max-width:767px) {
     .nav li > form > button.logout {
@@ -114,10 +108,59 @@ a.desc:after {
 .nav > li > form > button.logout:hover {
     text-decoration: none;
 }
-
-.nav > li > form > button.logout:focus {
-    outline: none;
-}
 .categories{
+    margin: 0;
+    padding-left: 35px;
+    height: 70px;
+    background-color: #2c2c2c;
+    display: flex;
+    align-items: center;
+}
+
+.categories-items{
+    margin-right: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 1%;
+}
+.categories-items a{
+    text-decoration: none;
+}
+.headerLogo img{
+    margin-left: 15%;
+    width: 75%;
+}
+.header{
+    background-color: white;
+    border-bottom: #0f0f0f 1px solid;
+}
+
+.main-container{
+    align-content: center;
+}
+.logout{
+    position: relative;
+    border: 2px solid black;
+    margin: 15px;
+    top: 10px;
     font-size: 30px;
+    background-color: white;
+}
+.articles{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.articleContent{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    margin: 2%;
+    height: 300px;
+    padding: 1%;
+    border: 1px solid #5e33ba;
+    border-radius: 3%;
+    background-color: #5e33ba;
 }
