@@ -20,9 +20,7 @@ class m200120_121110_comments_table_altered_again extends Migration
      */
     public function safeDown()
     {
-        echo "m200120_121110_comments_table_altered_again cannot be reverted.\n";
-
-        return false;
+        $this->dropColumn('comments','user');
     }
 
     /*

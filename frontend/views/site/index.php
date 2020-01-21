@@ -3,6 +3,7 @@
 /* @var $this yii\web\View */
 
 use \yii\helpers\Html;
+use yii\widgets\LinkPager;
 
 $this->title = 'FrootWall';
 ?>
@@ -11,13 +12,18 @@ $this->title = 'FrootWall';
 
 <div class="articles">
     <?php
-    if ($articles) {
-            foreach ($articles as $article)
+    if ($models) {
+            foreach ($models as $model)
                 echo  "<div class='articleContent'> "
-                        . Html::a($article->title,['content/index', 'id'=>$article->id]) . "
-                        <p style='margin-top: 10%'>" . $article-> short_description. "</p>
+                        . Html::a($model->title,['content/index', 'id'=>$model->id]) . "
+                        <p style='margin-top: 10%'>" . $model-> short_description. "</p>
                         </div>";
-    }
-    ?>
+            ?>
+            <div class="pages">
+                <?= LinkPager::widget([
+                'pagination' => $pages,
+                ]); ?>
+            </div>
+    <?php } ?>
 </div>
 </div>

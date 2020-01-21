@@ -3,7 +3,12 @@ body {
     height: 100%;
     width: 100%;
 }
-
+.pages{
+    position: fixed;
+    margin-left: 40px;
+    bottom: 0;
+    width: 100%;
+}
 .container{
     width: 100%; !important;
 }
@@ -160,7 +165,11 @@ a.desc:after {
     margin: 2%;
     height: 300px;
     padding: 1%;
-    border: 1px solid #5e33ba;
+    border: 1px solid #2e9ad0;
     border-radius: 3%;
-    background-color: #5e33ba;
+    background-color: #2e9ad0;
+}
+.articleContent a{
+    font-size: 40px;
+    text-decoration: none;
 }

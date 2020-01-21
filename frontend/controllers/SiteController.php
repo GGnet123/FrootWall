@@ -7,6 +7,7 @@ use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
 use Yii;
 use yii\base\InvalidArgumentException;
+use yii\data\Pagination;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -83,11 +84,17 @@ class SiteController extends Controller
         else{
             $categories = Categories::find()->all();
             if ($data==null){
-                $articles = Articles::find()->all();
-                return $this->render('index', ['categories' => $categories, 'articles'=>$articles]);
+                $articles = Articles::find();
+                $articlesCount = clone $articles;
+                $pages = new Pagination(['totalCount' => $articlesCount->count(),'pageSize' => 6]);
+                $models = $articles->offset($pages->offset)->limit($pages->limit)->all();
+                return $this->render('index', ['categories' => $categories, 'models'=>$models,'pages'=>$pages]);
             } else{
-              $articles = Articles::findAll(['category_id'=>$data]);
-              return $this->render('index', ['categories' => $categories, 'articles' => $articles]);
+              $articles = Articles::find()->where(['category_id'=>$data]);
+              $articlesCount = clone $articles;
+              $pages = new Pagination(['totalCount' => $articlesCount->count()]);
+              $models = $articles->offset($pages->offset)->limit($pages->limit)->all();
+              return $this->render('index', ['categories' => $categories, 'models'=>$models,'pages'=>$pages]);
             }
 
         }

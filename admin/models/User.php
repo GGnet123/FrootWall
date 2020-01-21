@@ -24,6 +24,7 @@ class User extends ActiveRecord
         if($this->isNewRecord){
             $this->created_at = date("Y/m/d h:m:s");
             $this->auth_key = \Yii::$app->security->generateRandomString();
+
         } else{
             $this->updated_at = date("Y/m/d h:m:s");
         }
