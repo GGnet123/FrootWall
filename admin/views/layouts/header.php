@@ -16,7 +16,6 @@ use yii\helpers\Html;
         </a>
 
         <div class="navbar-custom-menu">
-
             <ul class="nav navbar-nav">
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -30,13 +29,8 @@ use yii\helpers\Html;
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
-                            <?php if(Yii::$app->user->id == 27) { ?>
-                                <img src="https://i.pinimg.com/originals/34/ee/fe/34eefe7515f0741eec31f44bd68096e2.png" class="img-circle"
+                            <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="img-circle"
                                      alt="User Image"/>
-                            <?php } else {?>
-                                <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="img-circle"
-                                     alt="User Image"/>
-                            <?php } ?>
                             <p>
                                 <?=Yii::$app->user->identity->username?>
                                 <small><?=date('d-m-Y H:i:s')?></small>

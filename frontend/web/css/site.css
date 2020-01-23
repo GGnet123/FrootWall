@@ -4,7 +4,6 @@ body {
     width: 100%;
 }
 .pages{
-    position: fixed;
     margin-left: 40px;
     bottom: 0;
     width: 100%;
@@ -12,14 +11,32 @@ body {
 .container{
     width: 100%; !important;
 }
-
-.footer {
-    height: 60px;
-    background-color: #f5f5f5;
-    border-top: 1px solid #ddd;
-    padding-top: 20px;
+.img-circle{
+    padding: 2px;
+    width: 50px;
+    height: 70px;
 }
-
+.hidden-xs{
+    position: relative;
+    left: 50px;
+    font-size: 18px;
+    bottom: 5px;
+    width: 70%;
+    margin-bottom: 0;
+}
+.user-header img{
+    width: 80px;
+    height: 120px;
+}
+.user-header p{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.navbar-nav > li > a{
+    padding-bottom: 6px;
+}
 .jumbotron {
     text-align: center;
     background-color: transparent;
@@ -113,10 +130,11 @@ a.desc:after {
 .nav > li > form > button.logout:hover {
     text-decoration: none;
 }
+
 .categories{
     margin: 0;
     padding-left: 35px;
-    height: 70px;
+    height: 80px;
     background-color: #2c2c2c;
     display: flex;
     align-items: center;
@@ -132,6 +150,7 @@ a.desc:after {
     text-decoration: none;
 }
 .headerLogo img{
+    padding-top: 15px;
     margin-left: 15%;
     width: 75%;
 }
@@ -143,14 +162,14 @@ a.desc:after {
 .main-container{
     align-content: center;
 }
-.logout{
-    position: relative;
-    border: 2px solid black;
-    margin: 15px;
-    top: 10px;
-    font-size: 30px;
-    background-color: white;
-}
+/*.logout{*/
+/*    position: relative;*/
+/*    border: 2px solid black;*/
+/*    margin: 15px;*/
+/*    top: 10px;*/
+/*    font-size: 30px;*/
+/*    background-color: white;*/
+/*}*/
 .articles{
     display: flex;
     justify-content: space-between;

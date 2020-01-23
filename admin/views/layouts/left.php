@@ -18,30 +18,55 @@
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
-        
-        <?= dmstr\widgets\Menu::widget(
-            [
-                'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
-                'items' => [
-                    [
-                        'label' => 'Категории',
-                        'url' => ['/categories/index'],
-                        'icon' => 'list',
-//                        'visible' => Yii::$app->user->can('/categories/index'),
+        <?php
+        $user = \admin\models\User::findOne(['username'=>Yii::$app->user->identity->username]);
+        if ($user->role=='admin'){ ?>
+            <?= dmstr\widgets\Menu::widget(
+                [
+                    'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
+                    'items' => [
+                        [
+                            'label' => 'Категории',
+                            'url' => ['/categories/index'],
+                            'icon' => 'list',
+                        ],
+                        [
+                            'label' => 'Articles',
+                            'url' => ['/articles/index'],
+                            'icon' => 'list'
+                        ],
+                        [
+                            'label' => 'Registration',
+                            'url' => ['/user/index'],
+                            'icon' => 'list'
+                        ],
                     ],
-                    [
-                        'label' => 'Articles',
-                        'url' => ['/articles/index'],
-                        'icon' => 'list'
+                ]
+            ) ?>
+        <?php } else {
+            echo dmstr\widgets\Menu::widget(
+                [
+                    'options' => ['class' => 'sidebar-menu tree', 'data-widget' => 'tree'],
+                    'items' => [
+                        [
+                            'label' => 'Категории',
+                            'url' => ['/categories/index'],
+                            'icon' => 'list',
+                        ],
+                        [
+                            'label' => 'Articles',
+                            'url' => ['/articles/index'],
+                            'icon' => 'list'
+                        ],
+                        [
+                            'label' => 'Registration',
+                            'url' => ['/user/index'],
+                            'icon' => 'list'
+                        ],
                     ],
-                    [
-                        'label' => 'Registration',
-                        'url' => ['/user/index'],
-                        'icon' => 'list'
-                    ]
-                ],
-            ]
-        ) ?>
+                ]
+            );
+        }?>
     </section>
 
 </aside>

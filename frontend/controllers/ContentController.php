@@ -46,4 +46,16 @@ class ContentController extends Controller
         return $this->redirect(\Yii::$app->request->referrer);
     }
 
+    public function actionEdit(){
+        $request=\Yii::$app->request;
+        $request->post('title');
+        $model = Comments::findOne(['id'=>$request->post('id')]);
+        $model->title = $request->post('title');
+        $model->comment = $request->post('comment');
+        $model->save();
+        return $this->redirect(\Yii::$app->request->referrer);
+    }
+
+
+
 }

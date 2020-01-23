@@ -12,7 +12,9 @@ use common\widgets\Alert;
 
 AppAsset::register($this);
 ?>
-<?php $this->beginPage() ?>
+<?php $this->beginPage();
+    $user = \admin\models\User::findOne(["username"=>Yii::$app->user->identity->username])
+?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
@@ -38,21 +40,49 @@ AppAsset::register($this);
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
     } else {
-        $menuItems[] = '<li>'
-            . Html::beginForm(['/site/logout'], 'post')
-            . Html::submitButton(
-                'Logout (' . Yii::$app->user->identity->username . ')',
-                ['class' => 'logout']
-            )
-            . Html::endForm()
-            . '</li>';
+        $menuItems[] = '<div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+                <li class="dropdown user user-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        '.Html::img('/assets/images/'.$user->image,['class'=>'img-circle header-logo']).'
+                    </a>
+                    <span class="hidden-xs">'.Yii::$app->user->identity->username.'</span>
+                    <ul class="dropdown-menu">
+                        <!-- User image -->
+                        <li class="user-header">'
+                               .Html::img('/assets/images/'.$user->image,['class'=>'img-circle header-logo']).'
+                            <p>'.Yii::$app->user->identity->username.'
+                                <small>'.date("d-m-Y H:i:s").'</small>
+                            </p>
+                        </li>
+                        <!-- Menu Footer-->
+                        <li class="user-footer">
+                            <div class="pull-right">'.
+                                 Html::a(
+                                    "Выход",
+                                    ["/site/logout"],
+                                    ["data-method" => "post", "class" => "btn btn-default btn-flat"]
+                                ) .'
+                            </div>
+                            <div class="pull-right">
+                                <a href="'.\yii\helpers\Url::to(['profile/show','id'=>$user->id]).'" class="btn btn-default btn-flat showProfile">
+                                Профиль
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>';
     }
+
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => $menuItems,
     ]);
     NavBar::end();
     ?>
+
     <?php
     if (!Yii::$app->user->isGuest){ ?>
     <div class="categories">
@@ -70,7 +100,13 @@ AppAsset::register($this);
     <?= $content ?>
 </div>
 
-
+<?php
+\yii\bootstrap\Modal::begin([
+        'id' => 'profile',
+        'header' => '<h1>Профиль</h1>'
+]);
+\yii\bootstrap\Modal::end();
+?>
 
 <!--<footer class="footer">-->
 <!--    <div class="container">-->

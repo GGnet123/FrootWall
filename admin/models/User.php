@@ -16,7 +16,7 @@ class User extends ActiveRecord
     {
         return [
             [['username','password_hash'],'required'],
-            [['email','status'],'safe'],
+            [['email','status','image','phone_number'],'safe'],
         ];
     }
     public function beforeSave($insert)
@@ -24,6 +24,10 @@ class User extends ActiveRecord
         if($this->isNewRecord){
             $this->created_at = date("Y/m/d h:m:s");
             $this->auth_key = \Yii::$app->security->generateRandomString();
+            if (!$this->image){
+                $this->image = 'nopicture.png';
+            }
+
 
         } else{
             $this->updated_at = date("Y/m/d h:m:s");
