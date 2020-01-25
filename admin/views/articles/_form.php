@@ -29,6 +29,9 @@ $this->registerJs("CKEDITOR.editorConfig = function(config) {
     <?= $form->field($model, 'short_description')->widget(CKEditor::className(), [
         'options' => ['rows' => 2],
         'preset' => 'basic',
+        'clientOptions' => [
+            'customConfig' => '/ckeditor/ckeditor.js',
+            ]
         ]) ?>
 
     <?= $form->field($model, 'content')->widget(CKEditor::className(), [

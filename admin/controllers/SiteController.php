@@ -69,6 +69,9 @@ class SiteController extends Controller
      *
      * @return string
      */
+    public function actionTest(){
+        return Yii::$app->security->generatePasswordHash('123123');
+    }
     public function actionLogin()
     {
         if (!Yii::$app->user->isGuest) {
@@ -97,9 +100,5 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
-    }
-    public function actionTest(){
-        return \Yii::$app->security->generatePasswordHash('123123');
-//        var_dump($_SERVER['REMOTE_ADDR']);
     }
 }

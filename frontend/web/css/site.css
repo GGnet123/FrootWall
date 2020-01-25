@@ -1,7 +1,11 @@
 html,
-body {
+body .body{
     height: 100%;
     width: 100%;
+    background-color: white;
+}
+.wrap{
+    background-color: white;
 }
 .pages{
     margin-left: 40px;
@@ -13,17 +17,17 @@ body {
 }
 .img-circle{
     padding: 2px;
-    width: 50px;
-    height: 70px;
+    width: 30px;
+    height: 40px;
 }
-.hidden-xs{
-    position: relative;
-    left: 50px;
-    font-size: 18px;
-    bottom: 5px;
-    width: 70%;
-    margin-bottom: 0;
-}
+/*.hidden-xs{*/
+/*    position: relative;*/
+/*    left: 50px;*/
+/*    font-size: 18px;*/
+/*    bottom: 5px;*/
+/*    width: 70%;*/
+/*    margin-bottom: 0;*/
+/*}*/
 .user-header img{
     width: 80px;
     height: 120px;
@@ -34,6 +38,7 @@ body {
     flex-direction: column;
     align-items: center;
 }
+
 .navbar-nav > li > a{
     padding-bottom: 6px;
 }
@@ -149,16 +154,18 @@ a.desc:after {
 .categories-items a{
     text-decoration: none;
 }
-.headerLogo img{
-    padding-top: 15px;
-    margin-left: 15%;
-    width: 75%;
-}
+/*.headerLogo img{*/
+/*    padding-top: 15px;*/
+/*    margin-left: 15%;*/
+/*    width: 75%;*/
+/*}*/
 .header{
     background-color: white;
     border-bottom: #0f0f0f 1px solid;
 }
-
+.row{
+    margin:0;
+}
 .main-container{
     align-content: center;
 }
@@ -191,4 +198,59 @@ a.desc:after {
 .articleContent a{
     font-size: 40px;
     text-decoration: none;
+}
+.dropdown.user.user-menu{
+    display: flex;
+    flex-direction: row;
+    /*flex-direction: column;*/
+    align-items: center;
+    border: 1px solid #F5F5DC;
+    justify-content: space-around;
+    width: 70px;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+a.dropdown-toggle{
+    /*position: relative;*/
+    /*bottom: 50px;*/
+
+}
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus{
+    width: 30px;
+    height: 40px;
+}
+.navbar-right{
+    margin-right:0; !important;
+}
+.navbar-brand{
+    float: left;
+    height: 0;
+    padding: 0;
+    font-size: 18px;
+    line-height: 20px;
+}
+.nav > li > a{
+    padding: 0;
+}
+.navbar-collapse{
+    padding: 0;
+}
+.container{
+    padding: 0;
+}
+.navbar-brand img{
+    width: 170px;
+    height: 50px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+li.user-header{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+}
+li.user-footer{
+    display: flex;
+    justify-content: center;
 }
