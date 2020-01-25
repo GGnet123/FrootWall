@@ -61,10 +61,10 @@ AppAsset::register($this);
                                  Html::a(
                                     "Выход",
                                     ["/site/logout"],
-                                    ["data-method" => "post", "class" => "btn btn-default btn-flat"]
+                                    ["data-method" => "post", "class" => "btn btn-default btn-flat logout"]
                                 ) .'
                             </div>
-                            <div class="pull-right">
+                            <div class="pull-left">
                                 <a href="'.\yii\helpers\Url::to(['profile/show','id'=>$user->id]).'" class="btn btn-default btn-flat showProfile">
                                 Профиль
                                 </a>

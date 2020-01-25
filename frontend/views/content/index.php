@@ -23,7 +23,7 @@ use yii\helpers\Html; ?>
 <div class="comments">
     <?php if ($commentsCnt >= 1): ?>
     <div class="comments-container">
-        <h1><?php echo $commentsCnt . ' comment(s)'; ?> </h1>
+        <h2><?php echo 'Комментарии: ' . $commentsCnt; ?> </h2>
     <?php
     foreach ($comments as $item) { ?>
         <?php if (Yii::$app->user->identity->username != $item->user && $role != 'admin'){ ?>
@@ -90,7 +90,7 @@ use yii\helpers\Html; ?>
                     echo $form->field($model, 'comment');
                     ?>
                     <div class="form-group">
-                        <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>
+                        <?= Html::submitButton('Отправить', ['class' => 'btn btn-primary']) ?>
                     </div>
 
                     <?php \yii\widgets\ActiveForm::end();

@@ -20,7 +20,7 @@ function edit(id){
 
         title.item(0).innerHTML = '<input type="text" class="input-sm" value="'+titleContent+'" id="editTitleInput">';
         comment.item(0).innerHTML = '<input type="text" class="input-sm" value="'+commentContent+'" id="editCommentInput">' +
-            '<button class="btn btn-default" type="button" onclick="submit('+id+')">edit</button>';
+            '<button class="btn btn-default" type="button" onclick="submit('+id+')">править</button>';
     }
     locker = true;
 }

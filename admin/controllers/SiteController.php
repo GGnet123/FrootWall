@@ -1,6 +1,7 @@
 <?php
 namespace admin\controllers;
 
+use admin\models\User;
 use Yii;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -77,7 +78,18 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+            $user = User::findOne(['username'=>$model->username]);
+            if ($user->role!='admin'){
+                $model->password = '';
+                Yii::$app->user->logout();
+                return $this->render('login', [
+                    'model' => $model,
+                ]);
+            }
+            else {
+                return $this->goBack();
+            }
+
         } else {
             $model->password = '';
 
