@@ -43,9 +43,11 @@ use yii\helpers\Html; ?>
                             <i class="fa fa-reply"></i>
                             <i class="fa fa-heart"></i>
                         </div>
-                        <div class="comment-content">
+                        <? if ($item->comment): ?>
+                        <?= '<div class= "comment-content">' ?>
                             <?= $item->comment ?>
-                        </div>
+                        <?= '</div>' ?>
+                        <? endif; ?>
                     </div>
                 </div>
                 <?php } if (Yii::$app->user->identity->username == $item->user || $role == 'admin') { ?>
@@ -74,9 +76,11 @@ use yii\helpers\Html; ?>
                                     <i class="fa fa-reply"></i>
                                     <i class="fa fa-heart"></i>
                                 </div>
-                                <div class="comment-content">
-                                    <p class="comment<?=$item->id?>"><?= $item->comment ?></p>
-                                </div>
+                                <? if ($item->comment): ?>
+                                    <?= '<div class= "comment-content">' ?>
+                                    <?= '<p class="comment'.$item->id.'">' .$item->comment. '</p>' ?>
+                                    <?= '</div>' ?>
+                                <? endif; ?>
                             </div>
                         </div>
                             <?  }
