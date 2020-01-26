@@ -48,12 +48,20 @@ class ContentController extends Controller
 
     public function actionEdit(){
         $request=\Yii::$app->request;
-        $request->post('title');
         $model = Comments::findOne(['id'=>$request->post('id')]);
-        $model->title = $request->post('title');
-        $model->comment = $request->post('comment');
-        $model->save();
-        return $this->redirect(\Yii::$app->request->referrer);
+        if ($model->title != $request->post('title') || $model->comment != $request->post('comment')){
+            if ($model->comment != $request->post('comment')){
+                $model->comment = $request->post('comment') . ' (изменено)';
+            }
+            if ($model->title != $request->post('title')){
+                $model->title = $request->post('title') . ' (изменено)';
+            }
+            $model->save();
+            return $this->redirect(\Yii::$app->request->referrer);
+        }
+        else{
+            return false;
+        }
     }
 
 

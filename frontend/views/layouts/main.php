@@ -25,7 +25,7 @@ AppAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
-<body>
+<body class="body">
 <?php $this->beginBody() ?>
 
 <div class="wrap">
@@ -44,9 +44,9 @@ AppAsset::register($this);
             <ul class="nav navbar-nav">
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        '.Html::img('/assets/images/'.$user->image,['class'=>'img-circle header-logo']).'
+                        '.Html::img('/assets/images/'.$user->image,['class'=>'img-circle header-logo user-image']).'
                     </a>
-                    <span class="hidden-xs">'.Yii::$app->user->identity->username.'</span>
+                    <span class="hidden-xs dropdown-toggle">'.Yii::$app->user->identity->username.'</span>
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">'
@@ -103,11 +103,10 @@ AppAsset::register($this);
 <?php
 \yii\bootstrap\Modal::begin([
         'id' => 'profile',
-        'header' => '<h1>Профиль</h1>'
+//        'header' => '<h1>Профиль</h1>'
 ]);
 \yii\bootstrap\Modal::end();
 ?>
-
 <!--<footer class="footer">-->
 <!--    <div class="container">-->
 <!--        <p class="pull-left">&copy; --><?//= Html::encode(Yii::$app->name) ?><!-- --><?//= date('Y') ?><!--</p>-->
