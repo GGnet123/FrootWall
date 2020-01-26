@@ -6,22 +6,23 @@
     margin-right: 120px;
     margin-top: 20px;
 }
-body {
-    font-family: Arial,monospace;
-    background: #f1f1f1;
-}
 .row{
     text-align: center;
 }
 .header {
-    padding: 30px;
-    font-size: 40px;
-    text-align: center;
-    background: white;
+   display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-bottom-color: white;
+    padding-bottom: 10px;
 }
 .card {
-    padding: 20px;
-    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 3%;
 }
 .card h5{
     border-bottom: 1px solid #2c2421;
@@ -55,18 +56,20 @@ ul {
 }
 
 body {
-    font-family: 'Roboto', Arial, Helvetica, Sans-serif, Verdana;
-    background: #dee1e3;
+    font-family: 'Open Sans';
 }
 
 /** ====================
  * Comments
  =======================*/
 .comments-container {
-    margin: 60px 140px 15px;
-    width: 768px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-
+.comments-container h2{
+    font-size: 20px;
+}
 .comments-container h1 {
     font-size: 36px;
     color: #283035;
@@ -300,4 +303,11 @@ body {
     .reply-list .comment-box {
         width: 320px;
     }
+}
+.header h2{
+    font-size: 50px;
+    font-weight: bold;
+}
+.row{
+    text-align: left;
 }

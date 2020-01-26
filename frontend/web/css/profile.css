@@ -13,3 +13,38 @@ body{
     align-items: center;
 
 }
+.form-control{
+    width: 800px;
+}
+.add-comment-form{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+.comment-box .comment-head{
+    background-color: #F5F5F5;
+}
+.UserName{
+  font-weight: bold;
+    font-size: 30px;
+}
+.Job{
+    color: #C0C0C0;
+    font-size: 25px;
+}
+.DateOfBirth{
+    font-size: 20px;
+}
+.editImg:hover{
+    background-color: #808080;
+}
+.editImg {
+    position: relative;
+    bottom: 270px;
+    right: 270px;
+    width: 50px;
+    background-color: #DCDCDC;
+}
+
