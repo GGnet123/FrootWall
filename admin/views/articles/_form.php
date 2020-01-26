@@ -26,13 +26,13 @@ $this->registerJs("CKEDITOR.editorConfig = function(config) {
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'short_description')->widget(CKEditor::className(), [
-        'options' => ['rows' => 2],
-        'preset' => 'basic',
+    <?= $form->field($model, 'short_description')->widget(CKEditor::className(),[
+        'options' => ['rows' => 6],
+        'preset'=>'basic',
         'clientOptions' => [
             'customConfig' => '/ckeditor/ckeditor.js',
-            ]
-        ]) ?>
+        ]
+    ]) ?>
 
     <?= $form->field($model, 'content')->widget(CKEditor::className(), [
         'options' => ['rows' => 6],
@@ -46,7 +46,7 @@ $this->registerJs("CKEDITOR.editorConfig = function(config) {
     echo $form->field($model, 'category_id')->dropDownList($categories) ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

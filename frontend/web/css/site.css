@@ -177,6 +177,16 @@ a.desc:after {
 /*    font-size: 30px;*/
 /*    background-color: white;*/
 /*}*/
+.logout{
+    margin-right: 5px;
+
+}
+
+.showProfile{
+    margin-left: 5px;
+    padding-left: 5px;
+}
+
 .articles{
     display: flex;
     justify-content: space-between;

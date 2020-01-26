@@ -9,7 +9,7 @@ dmstr\web\AdminLteAsset::register($this);
 admin\assets\AppAsset::register($this);
 
 $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed2010/adminlte/dist');
-$this->title = $this->title = "Business";
+$this->title = $this->title = "Стена Фрут";
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -27,15 +27,17 @@ $this->title = $this->title = "Business";
 <?php $this->beginBody() ?>
 <div class="wrapper">
 
-    <?= $this->render(
-        'header.php',
-        ['directoryAsset' => $directoryAsset]
-    ) ?>
-
-    <?= $this->render(
-        'left.php',
-        ['directoryAsset' => $directoryAsset]
-    )
+    <?
+    if (!Yii::$app->user->isGuest){
+        echo $this->render(
+            'header.php',
+            ['directoryAsset' => $directoryAsset]
+        );
+        echo $this->render(
+            'left.php',
+            ['directoryAsset' => $directoryAsset]
+        );
+    }
     ?>
 
     <?= $this->render(

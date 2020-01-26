@@ -7,7 +7,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel admin\models\CategoriesSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Categories';
+$this->title = 'Категории';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="categories-index">
@@ -25,9 +25,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'toolbar' =>
             ['content'=>
                 Html::a('<i class="glyphicon glyphicon-plus"></i>', ['create'],
-                    ['role'=>'modal-remote','title'=> 'Create new Category','class'=>'btn btn-default']).
+                    ['role'=>'modal-remote','title'=> 'Создать категорию','class'=>'btn btn-default']).
                 Html::a('<i class="glyphicon glyphicon-repeat"></i>', [''],
-                    ['data-pjax'=>1, 'class'=>'btn btn-default', 'title'=>'Reset Grid']).
+                    ['data-pjax'=>1, 'class'=>'btn btn-default', 'title'=>'Сбросить сетку']).
                 '{toggleData}'.
                 '{export}'
             ],
@@ -36,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'responsive' => true,
         'panel' => [
             'type' => 'primary',
-            'heading' => '<i class="glyphicon glyphicon-list"></i> Categories list',
+            'heading' => '<i class="glyphicon glyphicon-list"></i> Список категорий',
             'before'=>'<em>* Resize table columns just like a spreadsheet by dragging the column edges.</em>',
             '<div class="clearfix"></div>',
         ]
