@@ -14,7 +14,8 @@ class AppAsset extends AssetBundle
     public $css = [
         'css/site.css',
         'css/content.css',
-        'css/profile.css'
+        'css/profile.css',
+        'css/drag-drop.css'
     ];
     public $js = [
         'js/main.js',

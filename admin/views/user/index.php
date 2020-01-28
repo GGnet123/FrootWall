@@ -1,5 +1,7 @@
 <?php
 
+use admin\models\Categories;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
@@ -19,7 +21,9 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
 
     <?php Pjax::begin(); ?>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php // echo $this->render('_search', ['model' => $searchModel]);
+    $categories = ArrayHelper::map(Categories::find()->all(), 'id', 'title');
+    // ?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -31,6 +35,10 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'role',
                 'filter' => \admin\models\User::$roles
+            ],
+            [
+                'attribute' => 'category_id',
+                'filter' => $categories
             ],
             ['class' => 'yii\grid\ActionColumn'],
         ],

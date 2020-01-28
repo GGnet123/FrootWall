@@ -14,7 +14,7 @@ use yii\helpers\Html; ?>
 <div class="row">
     <div class="leftcolumn">
         <div class="card">
-            <h5><?= $content->short_description ?></h5>
+<!--            <h5>--><?//= $content->short_description ?><!--</h5>-->
             <p><?= $content->content ?></p>
         </div>
     </div>
@@ -96,7 +96,6 @@ use yii\helpers\Html; ?>
                     <div class="form-group">
                         <?= Html::submitButton('Отправить', ['class' => 'btn btn-primary']) ?>
                     </div>
-
                     <?php \yii\widgets\ActiveForm::end();
                     ?>
                 </div>

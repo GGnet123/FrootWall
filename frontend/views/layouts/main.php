@@ -30,16 +30,14 @@ AppAsset::register($this);
 
 <div class="wrap">
     <?php
-    NavBar::begin([
-        'brandLabel' => Html::img('https://almaty.hh.kz/employer-logo/2906961.png'),
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'headerLogo',
-        ],
-    ]);
-    if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-    } else {
+ if (!Yii::$app->user->isGuest) {
+        NavBar::begin([
+            'brandLabel' => Html::img('https://almaty.hh.kz/employer-logo/2906961.png'),
+            'brandUrl' => Yii::$app->homeUrl,
+            'options' => [
+                'class' => 'headerLogo',
+            ],
+        ]);
         $menuItems[] = '<div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
                 <li class="dropdown user user-menu">
@@ -74,13 +72,14 @@ AppAsset::register($this);
                 </li>
             </ul>
         </div>';
+        echo Nav::widget([
+            'options' => ['class' => 'navbar-nav navbar-right'],
+            'items' => $menuItems,
+        ]);
+        NavBar::end();
     }
 
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => $menuItems,
-    ]);
-    NavBar::end();
+
     ?>
 
     <?php
@@ -94,6 +93,10 @@ AppAsset::register($this);
                     . Html::a($category->title, ['site/index', 'data' => $category->id], ['class' => 'categoriesHref']) .
                     "</h1></div>";
             }
+    echo
+        "<div class='categories-items'><h1>"
+        . Html::a('Сотрудники', ['profile/employers'], ['class' => 'categoriesHref']) .
+        "</h1></div>";
     ?>
     </div>
     <?php } ?>
@@ -101,9 +104,9 @@ AppAsset::register($this);
 </div>
 
 <?php
+
 \yii\bootstrap\Modal::begin([
-        'id' => 'profile',
-//        'header' => '<h1>Профиль</h1>'
+        'id' => 'profile'
 ]);
 \yii\bootstrap\Modal::end();
 ?>

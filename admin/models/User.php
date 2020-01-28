@@ -8,6 +8,7 @@ use yii\db\ActiveRecord;
 
 class User extends ActiveRecord
 {
+
     public static $roles = [
         'admin'=>'admin',
         'user'=>'user'
@@ -19,14 +20,27 @@ class User extends ActiveRecord
     public function rules()
     {
         return [
-            [['username','password_hash','role'],'required'],
-            [['email','status','image','phone_number'],'safe'],
+            [['username','password_hash','role','first_name','last_name','job','category_id'],'required'],
+            [['email','status','phone_number','date_of_birth'],'safe'],
+            [['image'],'file','skipOnEmpty' => true, 'extensions' => ['png, jpg, jpeg']]
         ];
+    }
+    public function upload(){
+        if ($this->validate()) {
+            $this->image->saveAs('/frontend/web/assets/images/' . \Yii::$app->user->identity->username . '.' . $this->image->extension);
+            return true;
+        } else {
+            return false;
+        }
     }
     public function attributeLabels()
     {
         return [
-            'username'=>'Имя',
+            'username'=>'Логин',
+            'first_name'=>'Имя',
+            'last_name'=>'Фамилия',
+            'category_id'=>'Категория',
+            'job'=>'Должность',
             'password_hash'=>'Хэш код пароля',
             'role'=>'Роль',
             'created_at'=>'Создано',

@@ -3,8 +3,10 @@ namespace frontend\controllers;
 
 use admin\models\Articles;
 use admin\models\Categories;
+use admin\models\User;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
+use kcfinder\dir;
 use Yii;
 use yii\base\InvalidArgumentException;
 use yii\data\Pagination;

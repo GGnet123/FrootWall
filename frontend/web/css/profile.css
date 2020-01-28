@@ -11,5 +11,43 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-
+}
+.form-control{
+    width: 800px;
+}
+.add-comment-form{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+.comment-box .comment-head{
+    background-color: #F5F5F5;
+}
+.UserName{
+  font-weight: bold;
+    font-size: 30px;
+}
+input {
+    color: black;
+}
+.Job{
+    color: #C0C0C0;
+    font-size: 25px;
+}
+.DateOfBirth{
+    font-size: 20px;
+}
+.editProfile:hover{
+    background-color: #808080;
+}
+.editProfile {
+    position: relative;
+    width: 80px;
+    background-color: #DCDCDC;
+}
+.header{
+    display: flex;
+    justify-content: left;
 }

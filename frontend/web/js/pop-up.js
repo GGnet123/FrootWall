@@ -13,7 +13,7 @@ $(document).ready(function () {
     $('.showProfile').on('click', function() {
             var href = $(this).attr('href');
             var id = get_params_from_href(href).id;
-            console.log(id);
+
             $.ajax({
                 type: 'GET',
                 url: 'index?r=profile/show',
