@@ -50,7 +50,7 @@ AppAsset::register($this);
                         <li class="user-header">'
                                .Html::img('/assets/images/'.$user->image,['class'=>'img-circle header-logo']).'
                             <p>'.Yii::$app->user->identity->username.'
-                                <small>'.date("d-m-Y H:i:s").'</small>
+                                <small>'.date("d/m/Y").'</small>
                             </p>
                         </li>
                         <!-- Menu Footer-->
@@ -96,6 +96,10 @@ AppAsset::register($this);
     echo
         "<div class='categories-items'><h1>"
         . Html::a('Сотрудники', ['profile/employers'], ['class' => 'categoriesHref']) .
+        "</h1></div>";
+    echo
+        "<div class='categories-items'><h1>"
+        . Html::a('Заявки', ['requests/index'], ['class' => 'categoriesHref']) .
         "</h1></div>";
     ?>
     </div>

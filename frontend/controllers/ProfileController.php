@@ -25,28 +25,27 @@ class ProfileController extends Controller
         }
 
     }
-
     public function actionAddImage(){
         $model = User::findOne(\Yii::$app->user->identity->id);
-
         $model->load(\Yii::$app->request->post(), '');
         $file = UploadedFile::getInstanceByName('file');
-        $model->image = $file;
-        $model->image->saveAs(\Yii::getAlias('@frontend').'/web/assets/images/'.$model->username.'.'.$file->extension);
-        $model->image = $model->username.'.'.$file->extension;
-        $model->save();
+        if ($file!=null){
+            $model->image = $file;
+            $model->image->saveAs(\Yii::getAlias('@frontend').'/web/assets/images/'.$model->username.'.'.$file->extension);
+            $model->image = $model->username.'.'.$file->extension;
+            $model->save();
+        }
         return $this->redirect(\Yii::$app->request->referrer);
     }
-
     public function actionEdit(){
         $id = \Yii::$app->request->post('id');
         $fullName = \Yii::$app->request->post('fullName');
         $phone = \Yii::$app->request->post('phone');
         $email = \Yii::$app->request->post('email');
+        $about = \Yii::$app->request->post('about');
 
         $first_name = explode(' ', $fullName)[0];
         $last_name = explode(' ', $fullName)[1];
-
 
         $user = User::findOne(['id'=>$id]);
         if ($first_name!=''){
@@ -56,6 +55,7 @@ class ProfileController extends Controller
             $user->last_name = $last_name;
         }
         $user->phone_number = $phone;
+        $user->about = $about;
         $user->email = $email;
         $user->save();
 

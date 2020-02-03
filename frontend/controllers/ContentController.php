@@ -49,9 +49,9 @@ class ContentController extends Controller
     public function actionEdit(){
         $request=\Yii::$app->request;
         $model = Comments::findOne(['id'=>$request->post('id')]);
-        if ($model->title != $request->post('title') || $model->comment != $request->post('comment')){
+        if ($model->comment != $request->post('comment')){
+            $model->title =  '<p style="font-size: 10px">(изменено)</p>';
             $model->comment = $request->post('comment');
-            $model->title = $request->post('title') . ' <p style="font-size: 10px">(изменено)</p>';
 
             $model->save();
         }

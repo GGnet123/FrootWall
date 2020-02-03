@@ -3,7 +3,6 @@
 
 namespace admin\models;
 
-
 use yii\db\ActiveRecord;
 
 class User extends ActiveRecord
@@ -21,7 +20,7 @@ class User extends ActiveRecord
     {
         return [
             [['username','password_hash','role','first_name','last_name','job','category_id'],'required'],
-            [['email','status','phone_number','date_of_birth'],'safe'],
+            [['email','status','phone_number','date_of_birth','full_name'],'safe'],
             [['image'],'file','skipOnEmpty' => true, 'extensions' => ['png, jpg, jpeg']]
         ];
     }
@@ -51,17 +50,18 @@ class User extends ActiveRecord
     public function beforeSave($insert)
     {
         if($this->isNewRecord){
-            $this->created_at = date("Y/m/d h:m:s");
+            $this->created_at = date("d/m/Y");
             $this->auth_key = \Yii::$app->security->generateRandomString();
             $this->password_hash = \Yii::$app->security->generatePasswordHash($this->password_hash);
             if (!$this->image){
                 $this->image = 'nopicture.png';
             }
+            $this->full_name = $this->first_name .' '.$this->last_name;
         } else{
             if (!User::findOne(['password_hash'=>$this->password_hash])){
                 $this->password_hash = \Yii::$app->security->generatePasswordHash($this->password_hash);
             }
-            $this->updated_at = date("Y/m/d h:m:s");
+            $this->updated_at = date("d/m/Y");
         }
         return true;
     }

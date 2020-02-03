@@ -43,6 +43,9 @@ return [
             'rules' => [
             ],
         ],
+        'mailer' => [
+            'class' => 'yii\swiftmailer\Mailer'
+        ],
     ],
     'modules' => [
         'gii' => [

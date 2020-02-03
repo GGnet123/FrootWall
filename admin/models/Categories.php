@@ -2,6 +2,8 @@
 
 namespace admin\models;
 
+use frontend\models\Requests;
+
 class Categories extends \yii\db\ActiveRecord
 {
     public static function tableName()
@@ -24,6 +26,7 @@ class Categories extends \yii\db\ActiveRecord
 
     public function getUsers()
     {
-        return $this->hasMany(User::className(), ['category_id' => 'id']);
+        return $this->hasMany(User::class, ['category_id' => 'id']);
     }
+
 }

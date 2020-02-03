@@ -15,10 +15,12 @@ class AppAsset extends AssetBundle
         'css/site.css',
         'css/content.css',
         'css/profile.css',
-        'css/drag-drop.css'
+        'css/drag-drop.css',
+        'css/requests.css'
     ];
     public $js = [
         'js/main.js',
+        'js/requests.js',
         'js/pop-up.js'
     ];
     public $depends = [

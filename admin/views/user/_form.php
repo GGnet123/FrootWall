@@ -26,6 +26,14 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'come_date')->widget(\kartik\date\DatePicker::class,[
+        'pluginOptions' => [
+            'todayHighlight' => true,
+            'autoclose' => true,
+            'format' => 'dd/mm/yyyy'
+        ]
+    ]) ?>
+
     <? $categories = ArrayHelper::map(Categories::find()->all(), 'id','title'); ?>
     <?= $form->field($model, 'category_id')->dropDownList($categories) ?>
 
