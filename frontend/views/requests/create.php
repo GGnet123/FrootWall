@@ -2,7 +2,7 @@
 <?php
 $form = \yii\widgets\ActiveForm::begin([
     'id'=> 'requests-form',
-    'options' => ['class'=>'request-form']
+    'options' => ['class'=>'request-form','style'=>'margin-top:40px']
 ]); ?>
 
     <?php $categories = \yii\helpers\ArrayHelper::map(\admin\models\Categories::find()->all(),'id','title') ?>
@@ -22,7 +22,7 @@ $form = \yii\widgets\ActiveForm::begin([
 
     <div class="selected-users"></div>
     <?= $form->field($model, 'date')->widget(\kartik\date\DatePicker::class,[
-            'options' => ['placeholder' => 'Дата ...','class'=>'datepicker','id'=>'date'],
+            'options' => ['placeholder' => 'Дата ...','class'=>'datepicker','id'=>'date','style'=>'width:200px'],
             'pluginOptions' => [
                 'format' => 'dd/mm/yyyy',
                 'todayHighlight' => true

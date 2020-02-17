@@ -19,8 +19,9 @@ class User extends ActiveRecord
     public function rules()
     {
         return [
-            [['username','password_hash','role','first_name','last_name','job','category_id'],'required'],
-            [['email','status','phone_number','date_of_birth','full_name'],'safe'],
+            [['password_hash','role','first_name','last_name','job','category_id','come_date'],'required'],
+            [['status','phone_number','date_of_birth','full_name'],'safe'],
+            [['username','email'],'unique'],
             [['image'],'file','skipOnEmpty' => true, 'extensions' => ['png, jpg, jpeg']]
         ];
     }

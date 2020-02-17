@@ -27,6 +27,8 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'come_date')->widget(\kartik\date\DatePicker::class,[
+         'model' => $model,
+        'attribute' => 'come_date',
         'pluginOptions' => [
             'todayHighlight' => true,
             'autoclose' => true,

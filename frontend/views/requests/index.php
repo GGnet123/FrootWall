@@ -5,11 +5,11 @@ use yii\widgets\LinkPager;
 ?>
 <div class="container-fluid">
     <div>
-        <?= \yii\helpers\Html::button('Create request',['class'=>'btn btn-success create-request-btn','onclick'=>'location.href="index.php?r=requests/create"']); ?>
+        <?= \yii\helpers\Html::button('Создать запрос',['class'=>'btn btn-success create-request-btn','onclick'=>'location.href="index.php?r=requests/create"']); ?>
     </div>
     <div>
         <?php foreach ($requests as $request): ?>
-        <div style="border: black 1px solid">
+        <div style="border: black 1px solid; padding: 10px">
             <?php $isAcceptable = false; ?>
             <?php $showDocs = false; ?>
             <?php foreach ($request->category as $category): ?>

@@ -8,19 +8,35 @@
         </thead>
         <tr>
             <th scope="col">
-                Username
+                #
+            </th>
+            <th scope="col">
+                Логин
+            </th>
+            <th scope="col">
+                Имя/Фамилия
             </th>
             <th scope="col">
                 email
             </th>
             <th scope="col">
-                Job
+                Должность
+            </th>
+            <th scope="col">
+                Дата прихода в компанию
             </th>
         </tr>
+        <?php $count = 1 ?>
         <? foreach ($category->users as $user): ?>
         <tr>
+            <th>
+                <?= $count ?>
+            </th>
             <td>
                 <a href="<?= \yii\helpers\Url::to(['profile/show','id'=>$user->id]) ?>" class="showProfile"><?= $user->username ?></a>
+            </td>
+            <td>
+                <?= $user->full_name ?>
             </td>
             <td>
                 <?= $user->email ?>
@@ -28,7 +44,11 @@
             <td>
                 <?= $user->job ?>
             </td>
+            <td>
+                <?= $user->come_date ?>
+            </td>
         </tr>
+        <?php $count++ ?>
             <? endforeach; ?>
     </table>
     <? endforeach; ?>

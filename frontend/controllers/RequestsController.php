@@ -81,12 +81,16 @@ class RequestsController extends Controller
     }
     public function actionSave(){
         $model = new Requests();
+        $docs = \Yii::$app->request->post('docs');
         $model->date = \Yii::$app->request->post('date');
         $model->category_id = \Yii::$app->request->post('category_id');
         $users = \Yii::$app->request->post('to_users_id');
         $model->to_users_id = implode(",",$users);
         $model->from_user_id = \Yii::$app->user->identity->id;
-        $model->docs = implode(',',\Yii::$app->request->post('docs'));
+        if ($docs){
+            $model->docs = implode(',',$docs);
+        }
+
         $user = User::findOne(\Yii::$app->user->identity->id);
 
         if ($model->save()){
